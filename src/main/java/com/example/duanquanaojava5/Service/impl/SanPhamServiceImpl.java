@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Service
 public class SanPhamServiceImpl implements SanPhamService {
@@ -21,5 +22,10 @@ public class SanPhamServiceImpl implements SanPhamService {
     @Override
     public void them(SanPham sanPham) {
         sanPhamRepositoryr.save(sanPham);
+    }
+
+    @Override
+    public void xoa(UUID id) {
+        sanPhamRepositoryr.deleteById(id);
     }
 }
