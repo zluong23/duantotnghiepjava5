@@ -1,7 +1,6 @@
 package com.example.duanquanaojava5.Model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Table;
 import lombok.Data;
 
 import java.sql.Date;
@@ -20,7 +19,7 @@ public class NSX {
     private String maNSX;
 
     @Column(name = "TEN")
-    private String ten;
+    private String TEN;
 
     @Column(name = "NGAYTAO")
     private Date ngayTao;

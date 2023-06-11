@@ -34,3 +34,6 @@ VALUES('S1','S',N'50-60',N'160-170'),
 ('S4','XL',N'75-90',N'170-180'),
 ('S5','XXL',N'85-100',N'170-190')
 
+insert into SANPHAM(MASP,TEN)
+VALUES('SP1',N'Áo polo Viền Sọc'),
+('SP2',N'Áo polo vip')

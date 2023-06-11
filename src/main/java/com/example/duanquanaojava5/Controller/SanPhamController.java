@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/san-pham")
@@ -48,5 +49,13 @@ public class SanPhamController {
         model.addAttribute(("tk"), new SanPham());
         return "san_pham/sanpham";
 
+    }
+    @GetMapping("/xoa/{id}")
+    public  String xoa(Model model, @PathVariable("id")UUID id){
+        sanPhamService.xoa(id);
+        ArrayList<SanPham> listSanPham = sanPhamService.getallSP();
+        model.addAttribute("listSanPham", listSanPham);
+        model.addAttribute(("tk"), new SanPham());
+        return "san_pham/sanpham";
     }
 }

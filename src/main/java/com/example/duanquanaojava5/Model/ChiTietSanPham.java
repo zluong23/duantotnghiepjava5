@@ -49,7 +49,7 @@ public class ChiTietSanPham {
     private ChatLieu chatLieu;
 
     @Column(name = "IMG")
-    private String img;
+    private byte[] img;
 
     @Column(name = "SOLUONGTON")
     private Integer soLuongTon;

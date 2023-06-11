@@ -130,7 +130,7 @@
                         <td>${sp.NGAYTAO}</td>
                         <td>${sp.NGAYSUA}</td>
                         <td>
-                            <a href="/mau-sac/xoa/${ms.id}" class="btn btn-primary">Xoa</a>
+                            <a href="/san-pham/xoa/${sp.id}" class="btn btn-primary">Xoa</a>
                             <a href="/mau-sac/detail/${ms.id}" class="btn btn-primary">Detail</a>
                                 <%--                    <a class="btn btn-primary" href="#">Update</a>--%>
 
