@@ -17,4 +17,9 @@ public class SanPhamServiceImpl implements SanPhamService {
     public ArrayList<SanPham> getallSP() {
         return (ArrayList<SanPham>) sanPhamRepositoryr.findAll();
     }
+
+    @Override
+    public void them(SanPham sanPham) {
+        sanPhamRepositoryr.save(sanPham);
+    }
 }

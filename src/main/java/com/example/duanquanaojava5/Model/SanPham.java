@@ -1,7 +1,10 @@
 package com.example.duanquanaojava5.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Past;
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 import java.util.UUID;
@@ -16,17 +19,18 @@ public class SanPham {
     private UUID id;
 
     @Column(name = "MASP")
-    private String maSP;
+    @NotBlank(message = "khong duoc de trong ma")
+    private String MASP;
 
     @Column(name = "TEN")
-    private String ten;
+    @NotBlank(message = "khong duoc de trong ten")
+    private String TEN;
 
     @Column(name = "NGAYTAO")
-    private Date ngayTao;
+    private Date NGAYTAO;
 
     @Column(name = "NGAYSUA")
-    private Date ngaySua;
+    private Date NGAYSUA;
 
-    @Column(name = "TEN")
-    private String TEN;
+
 }

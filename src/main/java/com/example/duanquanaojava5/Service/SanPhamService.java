@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface SanPhamService {
     ArrayList<SanPham> getallSP();
+    void them(SanPham sanPham);
 }
