@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 @Repository
-public interface DongSpRepository extends JpaRepository<DongSP, UUID> {
+public interface DongSpRepository extends JpaRepository<DongSP, Integer> {
+    DongSP findByTenDongSP(String tenDongSP);
 }

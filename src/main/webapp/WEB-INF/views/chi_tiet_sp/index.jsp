@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -133,12 +134,12 @@
             <th scope="col">Tên nhà sản xuất</th>
             <th scope="col">Tên màu sắc</th>
             <th scope="col">Tên dòng sản phẩm</th>
-            <th scope="col">Năm bảo hành</th>
             <th scope="col">Mô tả</th>
             <th scope="col">Số lượng tồn</th>
             <th scope="col">Giá nhập</th>
             <th scope="col">Giá bán</th>
-            <th colspan="2"></th>
+            <th scope="col">Img</th>
+            <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -152,10 +153,9 @@
                 <td>${ctsp.soLuongTon}</td>
                 <td>${ctsp.giaNhap}</td>
                 <td>${ctsp.giaBan}</td>
+                <td><img src="data:image/jpeg;base64,${fn:escapeXml(ctsp.img)}" /></td>
                 <td>
                     <a href="/ctsp/detail/${ctsp.id}" class="btn btn-primary">Cập nhật</a>
-                </td>
-                <td>
                     <a href="/ctsp/xoa/${ctsp.id}" class="btn btn-danger">Xóa</a>
                 </td>
             </tr>

@@ -14,23 +14,38 @@ import java.util.UUID;
 @Data
 public class SanPham {
     @Id
-    @Column(name = "Id", unique = true, nullable = false, length = 36)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(name = "MaSanPham", unique = true, nullable = false, length = 36)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer maSanPham;
 
-    @Column(name = "MASP")
-    @NotBlank(message = "khong duoc de trong ma")
-    private String MASP;
+    @Column(name = "TenSanPham")
+    private String tenSanPham;
 
-    @Column(name = "TEN")
-    @NotBlank(message = "khong duoc de trong ten")
-    private String TEN;
+    @ManyToOne
+    @JoinColumn(name = "ThuongHieu")
+    private ThuongHieu th;
 
-    @Column(name = "NGAYTAO")
-    private Date NGAYTAO;
+    @ManyToOne
+    @JoinColumn(name = "ChatLieu")
+    private ChatLieu cl;
 
-    @Column(name = "NGAYSUA")
-    private Date NGAYSUA;
+    @ManyToOne
+    @JoinColumn(name = "KieuAo")
+    private DongSP dsp;
 
 
+    @Column(name = "HinhAnh")
+    private String hinhAnh;
+
+    @Column(name = "luotmua")
+    private Integer luotMua;
+
+    @Column(name = "GiaNhap")
+    private Double giaNhap;
+
+    @Column(name = "GiaBan")
+    private Double giaBan;
+
+    @Column(name = "mota")
+    private String moTa;
 }

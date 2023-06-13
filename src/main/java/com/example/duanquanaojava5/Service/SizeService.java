@@ -10,5 +10,5 @@ import java.util.UUID;
 
 public interface SizeService {
     ArrayList<Size> getAll();
-    Optional<Size> findById(UUID id);
+    Optional<Size> findById(Integer maSize);
 }

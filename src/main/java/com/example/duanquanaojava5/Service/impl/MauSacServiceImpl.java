@@ -22,7 +22,12 @@ public class MauSacServiceImpl implements MauSacService {
     }
 
     @Override
-    public Optional<MauSac> findById(UUID id) {
-        return msRepo.findById(id);
+    public Optional<MauSac> findById(Integer maMauSac) {
+        return msRepo.findById(maMauSac);
     }
+
+//    @Override
+//    public Optional<MauSac> findById(UUID id) {
+//        return msRepo.findById(id);
+//    }
 }

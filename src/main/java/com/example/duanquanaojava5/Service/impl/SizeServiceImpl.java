@@ -22,7 +22,7 @@ public class SizeServiceImpl implements SizeService {
     }
 
     @Override
-    public Optional<Size> findById(UUID id) {
-        return sizeRepository.findById(id);
+    public Optional<Size> findById(Integer maSize) {
+        return sizeRepository.findById(maSize);
     }
 }

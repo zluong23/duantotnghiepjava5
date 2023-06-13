@@ -22,7 +22,17 @@ public class ChatLieuServiceImpl implements ChatLieuService {
     }
 
     @Override
-    public Optional<ChatLieu> findById(UUID id) {
-        return clRepo.findById(id);
+    public ChatLieu findByTenChatLieu(String tenChatLieu) {
+        return clRepo.findByTenChatLieu(tenChatLieu);
     }
+
+    @Override
+    public void save(ChatLieu chatLieu) {
+        clRepo.save(chatLieu);
+    }
+
+//    @Override
+//    public Optional<ChatLieu> findById(UUID id) {
+//        return clRepo.findById(id);
+//    }
 }

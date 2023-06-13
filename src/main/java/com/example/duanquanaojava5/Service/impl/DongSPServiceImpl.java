@@ -23,7 +23,17 @@ public class DongSPServiceImpl implements DongSPService {
     }
 
     @Override
-    public Optional<DongSP> findById(UUID id) {
-        return dspRepo.findById(id);
+    public DongSP findByTenDongSP(String tenDongSP) {
+        return dspRepo.findByTenDongSP(tenDongSP);
     }
+
+    @Override
+    public void save(DongSP dongSP) {
+        dspRepo.save(dongSP);
+    }
+//
+//    @Override
+//    public Optional<DongSP> findById(UUID id) {
+//        return dspRepo.findById(id);
+//    }
 }

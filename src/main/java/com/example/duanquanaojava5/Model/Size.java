@@ -11,19 +11,17 @@ import java.util.UUID;
 @Data
 public class Size {
     @Id
-    @Column(name = "Id", unique = true, nullable = false, length = 36)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(name = "MaSize", unique = true, nullable = false, length = 36)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer maSize;
 
-    @Column(name = "MASIZE")
-    private String maSize;
 
-    @Column(name = "TEN")
-    private String ten;
+    @Column(name = "SoSize")
+    private String soSize;
 
-    @Column(name = "NGAYTAO")
-    private Date ngayTao;
+    @Column(name = "ChieuCao")
+    private String chieuCao;
 
-    @Column(name = "NGAYSUA")
-    private Date ngaySua;
+    @Column(name = "CanNang")
+    private String CanNang;
 }

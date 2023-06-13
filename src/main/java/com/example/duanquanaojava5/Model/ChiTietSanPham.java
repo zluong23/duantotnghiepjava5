@@ -7,64 +7,35 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Entity(name = "ChiTietSanPham")
-@Table(name = "CHITIETSP")
+@Table(name = "ChiTietSanPham")
 @Data
 public class ChiTietSanPham {
     @Id
-    @Column(name = "Id", unique = true, nullable = false, length = 36)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(name = "MaCTSP", unique = true, nullable = false, length = 36)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer maCTSP;
 
-    @Column(name = "MACTSP")
-    private String maCTSP;
-
-    @Column(name = "NGAYTAO")
-    private Date ngayTao;
-
-    @Column(name = "NGAYSUA")
-    private Date ngaySua;
 
     @ManyToOne
-    @JoinColumn(name = "IDSP")
-    private SanPham sanPham;
+    @JoinColumn(name = "SanPham")
+    private SanPham sp;
+
 
     @ManyToOne
-    @JoinColumn(name = "IDDONGSP")
-    private DongSP dongSP;
-
-    @ManyToOne
-    @JoinColumn(name = "IDMAUSAC")
+    @JoinColumn(name = "MauSac")
     private MauSac mauSac;
 
     @ManyToOne
-    @JoinColumn(name = "IDSIZE")
-    private Size size;
+    @JoinColumn(name = "Size")
+    private Size sz;
 
-    @ManyToOne
-    @JoinColumn(name = "IDNSX")
-    private NSX nsx;
 
-    @ManyToOne
-    @JoinColumn(name = "IDCHATLIEU")
-    private ChatLieu chatLieu;
-
-    @Column(name = "IMG")
-    private byte[] img;
-
-    @Column(name = "SOLUONGTON")
+    @Column(name = "SoLuongTon")
     private Integer soLuongTon;
 
-    @Column(name = "GIANHAP")
-    private Double giaNhap;
-
-    @Column(name = "GIABAN")
-    private Double giaBan;
-
-    @Column(name = "MAVACH")
+    @Column(name = "maVach")
     private String maVach;
 
-    @Column(name = "MOTA")
-    private String moTa;
 
 
 

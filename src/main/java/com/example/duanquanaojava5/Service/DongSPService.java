@@ -10,5 +10,7 @@ import java.util.UUID;
 
 public interface DongSPService {
     ArrayList<DongSP> getAll();
-    Optional<DongSP> findById(UUID id);
+    DongSP findByTenDongSP(String tenDongSP);
+    void save(DongSP dongSP);
+//    Optional<DongSP> findById(UUID id);
 }

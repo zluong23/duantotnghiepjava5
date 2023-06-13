@@ -9,5 +9,7 @@ import java.util.UUID;
 
 public interface ChatLieuService {
     ArrayList<ChatLieu> getAll();
-    Optional<ChatLieu> findById(UUID id);
+    ChatLieu findByTenChatLieu(String tenChatLieu);
+    void save(ChatLieu chatLieu);
+//    Optional<ChatLieu> findById(UUID id);
 }

@@ -7,23 +7,17 @@ import java.sql.Date;
 import java.util.UUID;
 
 @Entity(name = "DongSP")
-@Table(name = "DONGSP")
+@Table(name = "DongSP")
 @Data
 public class DongSP {
     @Id
-    @Column(name = "Id", unique = true, nullable = false, length = 36)
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(name = "MaDongSP", unique = true, nullable = false, length = 36)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer maDongSP;
 
-    @Column(name = "MADONGSP")
-    private String maDongSP;
 
-    @Column(name = "TEN")
-    private String ten;
+    @Column(name = "TenDongSP")
+    private String tenDongSP;
 
-    @Column(name = "NGAYTAO")
-    private Date ngayTao;
 
-    @Column(name = "NGAYSUA")
-    private Date ngaySua;
 }
