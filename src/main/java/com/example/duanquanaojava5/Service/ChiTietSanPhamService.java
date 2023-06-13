@@ -11,4 +11,5 @@ import java.util.UUID;
 public interface ChiTietSanPhamService {
     ArrayList<ChiTietSanPham> getAll();
     Optional<ChiTietSanPham> findById(UUID id);
+    void save(ChiTietSanPham ctsp);
 }

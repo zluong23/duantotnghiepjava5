@@ -55,10 +55,10 @@ public class ChiTietSanPham {
     private Integer soLuongTon;
 
     @Column(name = "GIANHAP")
-    private Integer giaNhap;
+    private Double giaNhap;
 
     @Column(name = "GIABAN")
-    private Integer giaBan;
+    private Double giaBan;
 
     @Column(name = "MAVACH")
     private String maVach;

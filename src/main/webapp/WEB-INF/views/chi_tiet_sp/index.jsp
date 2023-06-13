@@ -33,7 +33,7 @@
 <%--</form>--%>
 <div>
     <h2 style="align: center">Chi tiết sp</h2>
-    <form action="/ctsp/them" method="post">
+    <form action="/ctsp/them" method="post" enctype="multipart/form-data">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã Chi Tiết Sản Phẩm</label>
@@ -119,6 +119,11 @@
             </div>
         </div>
         <br>
+        <div class="col-6">
+            <label for="image">Choose an image to upload:</label>
+            <input type="file" id="image" name="IMG">
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Thêm</button>
     </form>
     <table class="table table-striped mt-3">
@@ -139,11 +144,10 @@
         <tbody>
         <c:forEach items="${ ctsp }" var="ctsp">
             <tr>
-                <td>${ctsp.sp.TEN}</td>
-                <td>${ctsp.nsx.ten}</td>
-                <td>${ctsp.ms.ten}</td>
-                <td>${ctsp.dsp.ten}</td>
-                <td>${ctsp.namBH}</td>
+                <td>${ctsp.sanPham.TEN}</td>
+                <td>${ctsp.nsx.TEN}</td>
+                <td>${ctsp.mauSac.ten}</td>
+                <td>${ctsp.dongSP.ten}</td>
                 <td>${ctsp.moTa}</td>
                 <td>${ctsp.soLuongTon}</td>
                 <td>${ctsp.giaNhap}</td>

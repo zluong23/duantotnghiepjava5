@@ -25,4 +25,9 @@ public class ChiTietSanPhamServiceImpl implements ChiTietSanPhamService {
     public Optional<ChiTietSanPham> findById(UUID id) {
         return ctspRepo.findById(id);
     }
+
+    @Override
+    public void save(ChiTietSanPham ctsp) {
+        ctspRepo.save(ctsp);
+    }
 }
