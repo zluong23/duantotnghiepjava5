@@ -117,7 +117,7 @@
                         <li>Subtotal <span>${tongGia}</span></li>
                         <li>Total <span>${tongGia}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Đặt hàng</a>
+                    <a href="/gio-hang/dat-hang" class="primary-btn">Đặt hàng</a>
                 </div>
             </div>
         </div>

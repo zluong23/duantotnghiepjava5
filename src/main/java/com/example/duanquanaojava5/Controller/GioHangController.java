@@ -1,11 +1,7 @@
 package com.example.duanquanaojava5.Controller;
 
-import com.example.duanquanaojava5.Model.ChiTietSanPham;
-import com.example.duanquanaojava5.Model.GioHang;
-import com.example.duanquanaojava5.Model.GioHangChiTiet;
-import com.example.duanquanaojava5.Model.KhachHang;
+import com.example.duanquanaojava5.Model.*;
 import com.example.duanquanaojava5.Service.*;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpRequest;
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +26,10 @@ public class GioHangController {
     KhachHangService khachHangService;
     @Autowired
     ChiTietSanPhamService chiTietSanPhamService;
+    @Autowired
+    HoaDonService hoaDonService;
+    @Autowired
+    HoaDonChiTietService hoaDonChiTietService;
 
     @GetMapping("/cart")
     public String cart(Model model, HttpSession session, HttpServletRequest request) {
@@ -40,7 +41,7 @@ public class GioHangController {
         GioHang gioHang = gioHangService.findByKhachHang(khachHang.getMaKhachHang());
         if (gioHang == null) {
             gioHang = new GioHang();
-            gioHang.setNgayTao((java.sql.Date) new Date());
+           gioHang.setNgayTao(new java.sql.Date(new Date().getTime()));
             gioHang.setTrangThai(0);
             gioHang.setKhachHang(khachHang);
             gioHangService.save(gioHang);
@@ -83,6 +84,13 @@ public class GioHangController {
         }
         System.out.println(maCTSP);
         GioHang gioHang = gioHangService.findByKhachHang(khachHang.getMaKhachHang());
+        if (gioHang == null) {
+            gioHang = new GioHang();
+            gioHang.setNgayTao(new java.sql.Date(new Date().getTime()));
+            gioHang.setTrangThai(0);
+            gioHang.setKhachHang(khachHang);
+            gioHangService.save(gioHang);
+        }
         ChiTietSanPham ctsp = chiTietSanPhamService.findById(maCTSP).orElse(null);
         List<GioHangChiTiet> gioHangChiTiets = gioHangChiTietService.findByGioHangAndCtsp(gioHang, ctsp);
         if (gioHangChiTiets.isEmpty()) {
@@ -105,6 +113,33 @@ public class GioHangController {
     public String xoa(@PathVariable("maGioHang") Integer maGioHang) {
         gioHangChiTietService.delete(maGioHang);
         return "redirect:/gio-hang/cart";
+    }
+
+    @GetMapping("/dat-hang")
+    public String datHang(Model model, HttpSession session) {
+        KhachHang khachHang = (KhachHang) session.getAttribute("khachHang");
+        List<GioHangChiTiet> gioHangChiTiets = gioHangChiTietService.findByGioHangKhachHang(khachHang);
+        HoaDon hoaDon = new HoaDon();
+        hoaDon.setKhachHang(khachHang);
+        hoaDon.setGhiChu("addadad");
+        hoaDon.setNgayTao(new java.sql.Date(new Date().getTime()));
+        hoaDon.setTrangThai(0);
+        hoaDonService.save(hoaDon);
+        for (GioHangChiTiet gioHangChiTiet : gioHangChiTiets) {
+            HoaDonChiTiet hoaDonChiTiet = new HoaDonChiTiet();
+            hoaDonChiTiet.setHoaDon(hoaDon);
+            hoaDonChiTiet.setSanPham(gioHangChiTiet.getCtsp());
+            hoaDonChiTiet.setSoLuong(gioHangChiTiet.getSoLuong());
+            hoaDonChiTiet.setDonGia(gioHangChiTiet.getCtsp().getSp().getGiaBan() * gioHangChiTiet.getSoLuong());
+            hoaDonChiTiet.setTrangThai(0);
+            hoaDonChiTietService.save(hoaDonChiTiet);
+            ChiTietSanPham chiTietSanPham = gioHangChiTiet.getCtsp();
+            chiTietSanPham.setSoLuongTon(chiTietSanPham.getSoLuongTon()-gioHangChiTiet.getSoLuong());
+            chiTietSanPhamService.save(chiTietSanPham);
+            gioHangChiTietService.delete(gioHangChiTiet);
+            System.out.println("THÊM GIỎ HÀNG THÀNH CÔNG");
+        }
+        return "redirect:/admin/hoa-don";
     }
 
 }

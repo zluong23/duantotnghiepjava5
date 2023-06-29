@@ -77,7 +77,7 @@
                     <div class="header__top__right">
                         <div class="header__top__links">
                             <c:if test="${empty khachHang}">
-                                <a href="#">Sign in</a>
+                                <a href="/login">Sign in</a>
                             </c:if>
                             <c:if test="${not empty khachHang}">
                             <p style="color: white">${khachHang.tenKhachHang}</p>
