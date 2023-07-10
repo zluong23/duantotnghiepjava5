@@ -47,4 +47,24 @@ public class DongSpController {
         model.addAttribute("tk", new DongSP());
         return ("/dong_sp/dong_sp");
     }
+
+    @GetMapping("/detail/{maDongSP}")
+    public String detail(Model model, @PathVariable("maDongSP") Integer maDongSP) {
+        DongSP dongSP = dongSPService.findById(maDongSP).orElse(null);
+        model.addAttribute("dongSP", dongSP);
+//        ArrayList<DongSP> listDongSp = dongSPService.getAll();
+//        model.addAttribute("listDongSp", listDongSp);
+        model.addAttribute("tk", dongSP);
+        return ("/dong_sp/dong_sp_detail");
+    }
+
+    @PostMapping("/update/{maDongSP}")
+    public String update(Model model, @PathVariable("maDongSP") Integer maDongSP, @RequestParam("tenDongSP") String tenDongSP) {
+        DongSP dongSP = new DongSP();
+        dongSP.setMaDongSP(maDongSP);
+        dongSP.setTenDongSP(tenDongSP);
+        dongSPService.save(dongSP);
+
+        return "redirect:/dongsp/hien-thi";
+    }
 }

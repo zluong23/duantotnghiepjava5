@@ -12,6 +12,6 @@ public interface DongSPService {
     ArrayList<DongSP> getAll();
     DongSP findByTenDongSP(String tenDongSP);
     void save(DongSP dongSP);
-//    Optional<DongSP> findById(UUID id);
+    Optional<DongSP> findById(Integer maDongSP);
     void delete(Integer maDongSP);
 }

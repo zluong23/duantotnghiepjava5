@@ -37,7 +37,7 @@
 <div class="container-fluid">
 
 
-    <form:form action="/dongsp/add" method="post" modelAttribute="tk">
+    <form:form action="/dongsp/update/${dongSP.maDongSP}" method="post" modelAttribute="tk">
         <div class="col-6">
             <label>Ma</label>
             <form:input type="text" class="form-control" path="maDongSP"/>
@@ -48,39 +48,13 @@
             <form:input type="text" class="form-control" path="tenDongSP"/>
             <form:errors path="tenDongSP"/>
         </div>
-        <button type="submit">Add</button>
+        <button type="submit">Update</button>
         <h2 style=text-align:center>Danh sách Dòng Sản Phẩm</h2>
     </form:form>
     <form method="POST" action="/domgsp/import" enctype="multipart/form-data">
         <input type="file" name="file" required>
         <button type="submit">Import</button>
     </form>
-    <table class="table table-success table-striped">
-        <thead>
-        <tr>
-
-            <td>Mã</td>
-            <td>Tên</td>
-
-        </tr>
-        </thead>
-        <tbdoy>
-            <c:forEach items="${listDongSp}" var="sp">
-                <tr>
-
-                    <td>${sp.maDongSP}</td>
-                    <td>${sp.tenDongSP}</td>
-
-                    <td>
-                        <a href="/dongsp/delete/${sp.maDongSP}" class="btn btn-primary">Xoa</a>
-                        <a href="/dongsp/detail/${sp.maDongSP}" class="btn btn-primary">Update</a>
-                            <%--                    <a class="btn btn-primary" href="#">Update</a>--%>
-
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbdoy>
-    </table>
 
 
 </div>

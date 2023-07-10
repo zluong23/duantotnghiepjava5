@@ -33,6 +33,11 @@ public class DongSPServiceImpl implements DongSPService {
     }
 
     @Override
+    public Optional<DongSP> findById(Integer maDongSP) {
+        return dspRepo.findById(maDongSP);
+    }
+
+    @Override
     public void delete(Integer maDongSP) {
         dspRepo.deleteById(maDongSP);
     }
