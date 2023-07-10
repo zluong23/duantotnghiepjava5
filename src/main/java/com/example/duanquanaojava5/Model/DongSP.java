@@ -1,6 +1,7 @@
 package com.example.duanquanaojava5.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.sql.Date;
@@ -17,6 +18,7 @@ public class DongSP {
 
 
     @Column(name = "TenDongSP")
+    @NotBlank(message = "Không được để trống ")
     private String tenDongSP;
 
 

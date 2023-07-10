@@ -37,50 +37,50 @@
 <div class="container-fluid">
 
 
-        <form:form action="/san-pham/add" method="post" modelAttribute="tk">
-            <div class="col-6">
-                <label>Ma</label>
-                <form:input type="text" class="form-control" path="maDongSP"/>
-                <form:errors path="maDongSP"/>
-            </div>
-            <div class="col-6">
-                <label> Tên </label>
-                <form:input type="text" class="form-control" path="tenDongSP"/>
-                <form:errors path="tenDongSP"/>
-            </div>
-            <button type="submit">Add</button>
-            <h2 style=text-align:center>Danh sách Dòng Sản Phẩm</h2>
-        </form:form>
-        <form method="POST" action="/san-pham/import" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <button type="submit">Import</button>
-        </form>
-        <table class="table table-success table-striped">
-            <thead>
-            <tr>
+    <form:form action="/dongsp/add" method="post" modelAttribute="tk">
+        <div class="col-6">
+            <label>Ma</label>
+            <form:input type="text" class="form-control" path="maDongSP"/>
+            <form:errors path="maDongSP"/>
+        </div>
+        <div class="col-6">
+            <label> Tên </label>
+            <form:input type="text" class="form-control" path="tenDongSP"/>
+            <form:errors path="tenDongSP"/>
+        </div>
+        <button type="submit">Add</button>
+        <h2 style=text-align:center>Danh sách Dòng Sản Phẩm</h2>
+    </form:form>
+    <form method="POST" action="/domgsp/import" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Import</button>
+    </form>
+    <table class="table table-success table-striped">
+        <thead>
+        <tr>
 
-                <td>Mã</td>
-                <td>Tên</td>
+            <td>Mã</td>
+            <td>Tên</td>
 
-            </tr>
-            </thead>
-            <tbdoy>
-                <c:forEach items="${listDongSp}" var="sp">
-                    <tr>
+        </tr>
+        </thead>
+        <tbdoy>
+            <c:forEach items="${listDongSp}" var="sp">
+                <tr>
 
-                        <td>${sp.maDongSP}</td>
-                        <td>${sp.tenDongSP}</td>
+                    <td>${sp.maDongSP}</td>
+                    <td>${sp.tenDongSP}</td>
 
-                        <td>
-                            <a href="/san-pham/xoa/${sp.id}" class="btn btn-primary">Xoa</a>
-                            <a href="/mau-sac/detail/${ms.id}" class="btn btn-primary">Detail</a>
-                                <%--                    <a class="btn btn-primary" href="#">Update</a>--%>
+                    <td>
+                        <a href="/dongsp/delete/${sp.maDongSP}" class="btn btn-primary">Xoa</a>
+                            <%--                        <a href="/mau-sac/detail/${ms.id}" class="btn btn-primary">Detail</a>--%>
+                            <%--                    <a class="btn btn-primary" href="#">Update</a>--%>
 
-                        </td>
-                    </tr>
-                </c:forEach>
-            </tbdoy>
-        </table>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbdoy>
+    </table>
 
 
 </div>
