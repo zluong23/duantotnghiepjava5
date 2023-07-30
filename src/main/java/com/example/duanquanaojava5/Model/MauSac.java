@@ -1,6 +1,7 @@
 package com.example.duanquanaojava5.Model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.sql.Date;
@@ -16,6 +17,7 @@ public class MauSac {
     private Integer maMauSac;
 
     @Column(name = "TenMau")
+    @NotBlank(message = "Khong dc de trong")
     private String tenMauSac;
 
 }

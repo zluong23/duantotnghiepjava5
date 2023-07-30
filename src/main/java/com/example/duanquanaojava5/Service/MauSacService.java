@@ -11,5 +11,8 @@ import java.util.UUID;
 public interface MauSacService {
     ArrayList<MauSac> getAll();
     Optional<MauSac> findById(Integer maMauSac);
+    void them (MauSac mauSac);
+    void sua (MauSac mauSac);
+    void xoa (Integer maMauSac);
 //    Optional<MauSac> findById(UUID id);
 }

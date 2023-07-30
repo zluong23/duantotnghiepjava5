@@ -26,6 +26,21 @@ public class MauSacServiceImpl implements MauSacService {
         return msRepo.findById(maMauSac);
     }
 
+    @Override
+    public void them(MauSac mauSac) {
+        msRepo.save(mauSac);
+    }
+
+    @Override
+    public void sua(MauSac mauSac) {
+        msRepo.save(mauSac);
+    }
+
+    @Override
+    public void xoa(Integer maMauSac) {
+        msRepo.deleteById(maMauSac);
+    }
+
 //    @Override
 //    public Optional<MauSac> findById(UUID id) {
 //        return msRepo.findById(id);
